@@ -22,6 +22,7 @@ public class Branch_settings extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
         if( insertdata()){
             System.out.println("Inserted");
             Load_data();

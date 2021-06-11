@@ -59,7 +59,9 @@ holder.edit.setOnClickListener(new View.OnClickListener() {
     public void onClick(View v) {
 
         System.out.println(holder.branch.getText().toString()+"  "+holder.price.getText().toString()+"  "+position);
-        ddb.updatebranch(holder.branch.getText().toString(),holder.price.getText().toString(),position);
+        if(ddb.update(dbm_name.get(position),holder.branch.getText().toString()) && ddb.update(dbm_amount.get(position).toString(),holder.price.getText().toString())){
+            notifyItemChanged(position);
+        }
 
 
     }

@@ -47,12 +47,17 @@ public class bankdb extends SQLiteOpenHelper {
         SQLiteDatabase db= this.getWritableDatabase();
         return db.delete(Table_Name, "branch_name" + "=" +"'"+name+"'", null) > 0;
     }
-    public void updatebranch(String name, String amount, int id)
-    {
-        SQLiteDatabase db= this.getWritableDatabase();
-        ContentValues contentValues=new ContentValues();
-        contentValues.put("branch_name",name);
-        contentValues.put("financial_amount",amount);
-       db.update(Table_Name, contentValues, "ID=" + id, null);
+//    public void updatebranch(String name, String amount, int id)
+//    {
+//        SQLiteDatabase db= this.getWritableDatabase();
+//        ContentValues contentValues=new ContentValues();
+//        contentValues.put("branch_name",name);
+//        contentValues.put("financial_amount",amount);
+//       db.update(Table_Name, contentValues, "ID=" + id, null);
+//    }
+    public boolean update(String s, String s1) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.execSQL("UPDATE "+Table_Name+" SET branch_name = "+"'"+s+"' "+ "WHERE branch_name = "+"'"+s1+"'");
+        return true;
     }
 }
